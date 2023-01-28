@@ -41,10 +41,10 @@ export default function Home() {
             </a>
           </div>
         </div>
-       <Main />
 
+       <Main />
        <FooterLinks />
-        
+       
       </main> 
       
     

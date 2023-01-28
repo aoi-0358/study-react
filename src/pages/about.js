@@ -17,7 +17,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
@@ -43,15 +42,10 @@ export default function Home() {
           </div>
         </div>
 
-
         <Main />
-
         <FooterLinks />
+        
       </main> 
-  
-   
-
-     
     </>
   )
 }
