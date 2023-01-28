@@ -20,7 +20,16 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.description}>
-            <Headline page="about"/>
+         <Headline 
+            page="about"
+            number={111} 
+            array={[1,2,3]} 
+            obj={{foo: "foo", bar: "bar",}} 
+            boolean
+           >
+            <code className={styles.code}>about page</code>
+          </Headline>
+                  
           <div>
             <a
               href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"

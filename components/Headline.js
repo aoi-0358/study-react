@@ -9,7 +9,7 @@ export function Headline(props) {
     <>
           <p>
               {props.page}.js started by editing&nbsp;
-            <code className={styles.code}>{props.page} page</code>
+              {props.children}
           </p>
     </>
   )
