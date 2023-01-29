@@ -1,14 +1,7 @@
 import Link from "next/link";
 import classes from "src/components/Header/Header.module.css";
-import { useEffect } from "react";
 
 export function Header () {
-  useEffect(() => {
-    document.body.style.backgroundColor = "lightblue";
-    return () => {
-      document.body.style.backgroundColor = "";
-     };
-  }, []);
   return(
     <>
      <header className={classes.header}>
