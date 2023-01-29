@@ -6,17 +6,17 @@ import { FooterLinks } from '@/components/FooterLinks'
 import { Headline } from '@/components/Headline'
 import { Img } from '@/components/Img'
 import { Header } from '@/components/Header'
-import { useCallback, useEffect } from 'react'
+import { useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  // const foo = 1;
-  // const handleClick = useCallback((e) => {
-  //   console.log(e.target.href);
-  //   e.preventDefault();  
-  //   alert(foo);
-  //  }, []);
+  const [count, setCount] = useState(1);
+  const handleClick = (e) => {
+    setCount((count) => count + 1);
+    setCount((count) => count + 1);
+
+   };
 
   return (
     <>
@@ -24,9 +24,8 @@ export default function Home() {
         <title>Index Page</title>
       </Head>       
       <Header />
-      {/* <a href="/about" onClick={handleClick}>
-        ボタン
-      </a> */}
+      <h1>{count}</h1>
+      <button onClick={handleClick}>ボタン</button>
       <main className={styles.main}>
         <div className={styles.description}>
           <Headline 
