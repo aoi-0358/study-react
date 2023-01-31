@@ -15,6 +15,8 @@ export default function Home() {
   const [count, setCount] = useState(1);
   const [text, setText] = useState("");
   const [isShow, setIsShow] = useState(true);
+  const [array, setArray] = useState([]);
+
 
   const handleClick = useCallback(() => {
     console.log(count);
@@ -34,6 +36,16 @@ export default function Home() {
     }
     setText(e.target.value.trim())
   }, []);
+
+  const handleAdd =useCallback(() => {
+    setArray((prevArray) => {
+      if(prevArray.some(item => item === text)) {
+        alert("同じ要素がすでに存在しています");
+        return prevArray;
+      }
+       return [...prevArray, text];
+    });
+  }, [text]);
 
    useEffect(() => {
     document.body.style.backgroundColor = "lightblue";
@@ -62,6 +74,16 @@ export default function Home() {
       type="text"  
       value={text} 
       onChange={handleChange} />
+      
+
+      <button onClick={handleAdd}>追加</button>
+      <ul>
+        {array.map(item => {
+          return(
+            <li key={item}>{item}</li>
+          )
+        }) }
+      </ul>
 
       <main className={styles.main}>
         <div className={styles.description}>
