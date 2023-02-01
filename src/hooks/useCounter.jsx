@@ -2,7 +2,7 @@ import { useState, useCallback } from 'react'
 
 
 
- export const useConter = () => {
+ export const useCounter = () => {
   const [count, setCount] = useState(1);
   const [isShow, setIsShow] = useState(true);
 
