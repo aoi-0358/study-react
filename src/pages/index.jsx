@@ -6,9 +6,6 @@ import { FooterLinks } from '@/components/FooterLinks'
 import { Headline } from '@/components/Headline'
 import { Img } from '@/components/Img'
 import { Header } from '@/components/Header'
-import { useConter } from '@/hooks/useConter'
-import { useInputArray } from '@/hooks/useInputArra'
-import { useBglightBlue } from '@/hooks/useBglightBlue'
 
 
 
@@ -17,12 +14,9 @@ const inter = Inter({ subsets: ['latin'] })
 
 
 //--------------------home
-export default function Home() {
-  const {count, isShow, handleClick, handleDisplay} = useConter();
-  const {text, array, handleChange, handleAdd } = useInputArray();
-  useBglightBlue();
-
-
+export default function Home(props) {
+  const {count, isShow, handleClick, handleDisplay, text, array, handleChange, handleAdd} = props;
+  
   return (
     <>
       <Head>
