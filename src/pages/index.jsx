@@ -19,7 +19,7 @@ export default function Home(props) {
         <title>Index Page</title>
       </Head>       
       <Header />
-      {isShow ? <h1>{count}</h1> : null}
+      {isShow ? <h1>{doblecount}</h1> : null}
       <button onClick={handleClick}>ボタン</button>
       <button onClick={handleDisplay}>
        {isShow ? "非表示" : "表示"}
