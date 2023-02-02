@@ -29,7 +29,7 @@ const ITEMS = [
   },
 ];
 
-export function FooterLinks ({items}) {
+export const FooterLinks = ({ props }) => {
   
   return (
     <>

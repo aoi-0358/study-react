@@ -7,7 +7,7 @@ import { useBgColor } from '@/hooks/useBgColor'
 
 
 
-export default function App({ Component, pageProps }) {
+export default function App ({ Component, pageProps }) {
   const counter = useCounter();
   const InputArray = useInputArray();
   useBgColor();

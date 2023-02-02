@@ -4,11 +4,10 @@ import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export function Headline(props) {
+export const Headline = (props) => {
   return (
     <>
-          <p>
-              
+          <p> 
               アイテムの数は{props.children}個です
           </p>
 

@@ -5,7 +5,7 @@ import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export function Img() {
+export const Img = () => {
   return (
         <div>
             <a

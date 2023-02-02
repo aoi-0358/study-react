@@ -4,7 +4,7 @@ import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export function Main () {
+export const Main = () => {
   return (
     <>
       <main  className={styles.main}>
