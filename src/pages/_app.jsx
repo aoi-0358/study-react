@@ -2,7 +2,7 @@ import '@/styles/globals.css'
 import Head from 'next/head';
 import { useCounter } from '@/hooks/useCounter'
 import { useInputArray } from '@/hooks/useInputArray'
-import { useBglightBlue } from '@/hooks/useBglightBlue'
+import { useBgColor } from '@/hooks/useBgColor'
 
 
 
@@ -10,7 +10,7 @@ import { useBglightBlue } from '@/hooks/useBglightBlue'
 export default function App({ Component, pageProps }) {
   const counter = useCounter();
   const InputArray = useInputArray();
-  useBglightBlue();
+  useBgColor();
 
 
   return (
