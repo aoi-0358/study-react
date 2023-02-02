@@ -34,7 +34,7 @@ export function FooterLinks ({items}) {
   return (
     <>
         <div className={classes.grid}>
-        {items.map(item => {
+        {ITEMS.map(item => {
            return(
             <a key={item.href} href={item.href} className={classes.card} 
             target="_blank" 

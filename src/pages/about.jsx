@@ -6,7 +6,7 @@ import { FooterLinks } from '@/components/FooterLinks'
 import { Headline } from '@/components/Headline'
 import { Img } from '@/components/Img'
 import { Header } from '@/components/Header'
-import { useState,useCallback } from 'react'
+import { useState, useCallback } from 'react'
 
 
 const ITEMS = [
