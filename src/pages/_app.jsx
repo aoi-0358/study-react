@@ -1,14 +1,14 @@
 import '@/styles/globals.css'
 import Head from 'next/head';
-import { useConter } from '@/hooks/useConter'
-import { useInputArray } from '@/hooks/useInputArra'
+import { useCounter } from '@/hooks/useCounter'
+import { useInputArray } from '@/hooks/useInputArray'
 import { useBglightBlue } from '@/hooks/useBglightBlue'
 
 
 
 
 export default function App({ Component, pageProps }) {
-  const conter = useConter();
+  const counter = useCounter();
   const InputArray = useInputArray();
   useBglightBlue();
 
@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }) {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" href="/favicon.ico" />
       </Head>
-    <Component {...pageProps} {...conter} {...InputArray}/>
+    <Component {...pageProps} {...counter} {...InputArray}/>
   </>
   );
 }

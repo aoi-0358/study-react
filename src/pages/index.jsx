@@ -7,11 +7,7 @@ import { Headline } from '@/components/Headline'
 import { Img } from '@/components/Img'
 import { Header } from '@/components/Header'
 
-
-
-
 const inter = Inter({ subsets: ['latin'] })
-
 
 //--------------------home
 export default function Home(props) {

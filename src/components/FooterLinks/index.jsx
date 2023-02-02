@@ -1,5 +1,6 @@
 import { style } from '@material-ui/system';
 import { Inter } from '@next/font/google'
+import { useCallback, useState } from 'react';
 import classes from './FooterLinks.module.css';
 
 
@@ -28,12 +29,12 @@ const ITEMS = [
   },
 ];
 
-export function FooterLinks () {
+export function FooterLinks ({items}) {
+  
   return (
     <>
         <div className={classes.grid}>
-          
-        {ITEMS.map(item => {
+        {items.map(item => {
            return(
             <a key={item.href} href={item.href} className={classes.card} 
             target="_blank" 
