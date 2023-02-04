@@ -1,6 +1,4 @@
-import { style } from '@material-ui/system';
 import { Inter } from '@next/font/google'
-import { useCallback, useState } from 'react';
 import classes from './FooterLinks.module.css';
 
 
