@@ -1,19 +1,17 @@
 .header {
   border-bottom: 1px solid #fff;
-  text-align: center;
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 100px;
-} 
+}
 
 .anchor {
   font-size: 1.3rem;
 }
 
 .ancho:hover,
-.anchor:focus, 
+.anchor:focus,
 .anchor:active {
   color: aquamarine;
 }
- 

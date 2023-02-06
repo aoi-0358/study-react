@@ -6,39 +6,41 @@ import { FooterLinks } from "@/components/FooterLinks";
 import { Headline } from "@/components/Headline";
 import { Img } from "@/components/Img";
 import { Header } from "@/components/Header";
+import { useState } from "react";
+import { useCallback } from "react";
+import { useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 //--------------------home
 const Home = (props) => {
+  const [posts, setposts] = useState([]);
+
+  const getPosts = useCallback(async () => {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const json = await res.json();
+    setposts(json);
+  }, []);
+
+  useEffect(() => {
+    getPosts();
+  }, [getPosts]);
+
+  console.log(posts);
+
   return (
     <>
       <Head>
         <title>Index Page</title>
       </Head>
       <Header />
-      {props.isShow ? <h1>{props.dobleCount}</h1> : null}
-      <button onClick={props.handleClick}>ボタン</button>
-      <button onClick={props.handleDisplay}>
-        {props.isShow ? "非表示" : "表示"}
-      </button>
-      <input type="text" value={props.text} onChange={props.handleChange} />
-      <button onClick={props.handleAdd}>追加</button>
-      <ul>
-        {props.array.map((item) => {
-          return <li key={item}>{item}</li>;
+
+     {posts.length > 0 ?(
+      <ol>
+        {posts.map((post) => {
+          return <li key={post.id}>{post.title}</li>;
         })}
-      </ul>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <Headline page="index">
-            <code className={styles.code}>index page</code>
-          </Headline>
-          <Img />
-        </div>
-        <Main />
-        <FooterLinks />
-      </main>
+      </ol> ) : null}
     </>
   );
 };
