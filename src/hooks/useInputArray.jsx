@@ -1,28 +1,26 @@
-import { useState, useCallback } from 'react'
-
-
+import { useState, useCallback } from "react";
 
 export const useInputArray = () => {
   const [text, setText] = useState("");
   const [array, setArray] = useState([]);
 
-   const handleChange = useCallback((e) => {
+  const handleChange = useCallback((e) => {
     if (e.target.value.length > 5) {
       alert("五文字以内");
       return;
     }
-    setText(e.target.value.trim())
+    setText(e.target.value.trim());
   }, []);
 
   const handleAdd = useCallback(() => {
     setArray((prevArray) => {
-      if(prevArray.includes(text)) {
+      if (prevArray.includes(text)) {
         alert("同じ要素がすでに存在しています");
         return prevArray;
       }
-       return [...prevArray, text];
+      return [...prevArray, text];
     });
   }, [text]);
 
-  return{text, array, handleChange, handleAdd}
-}
+  return { text, array, handleChange, handleAdd };
+};
