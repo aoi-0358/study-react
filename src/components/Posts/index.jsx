@@ -1,6 +1,7 @@
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import { usePosts } from "src/hooks/usePosts";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +25,13 @@ export const Posts = () => {
     <>
       <ol className={styles.wrapper}>
         {data.map((post) => {
-          return <li key={post.id}>{post.title}</li>;
+          return (
+            <li key={post.id}>
+              <Link href={`/post/${post.id}`}>
+                <div>{post.title}</div>
+              </Link>
+            </li>
+          );
         })}
       </ol>
     </>
