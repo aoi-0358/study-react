@@ -1,12 +1,11 @@
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
-import { usePosts } from "src/hooks/usePosts";
+import { usePosts } from "src/hooks/usePost";
 import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
-//--------------------home
-export const Posts = () => {
+export const posts = () => {
   const { data, error, isLoading, isEmpty } = usePosts();
 
   if (isLoading) {
