@@ -5,7 +5,7 @@ import { Post } from "src/components/Post";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const PostId = () => {
+const PostsId = () => {
   return (
     <div className={styles.container}>
       <Header />
@@ -14,4 +14,4 @@ const PostId = () => {
   );
 };
 
-export default PostId;
+export default PostsId;
