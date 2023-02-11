@@ -26,7 +26,7 @@ export const Posts = () => {
         {data.map((post) => {
           return (
             <li key={post.id}>
-              <Link href={`/post/${post.id}`}>
+              <Link href={`/posts/${post.id}`}>
                 <div>{post.title}</div>
               </Link>
             </li>
