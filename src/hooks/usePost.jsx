@@ -6,19 +6,19 @@ export const usePost = () => {
   const router = useRouter();
   const { data: post, error: postError } = useSWR(
     router.query.id
-      ? `https://jsonplaceholder.typicode.com/posts/${router.quety.Id}`
+      ? `https://jsonplaceholder.typicode.com/posts/${router.query.id}`
       : null,
     fetcher
   );
   const { data: user, error: userError } = useSWR(
     post?.userId
-      ? `https://jsonplaceholder.typicode.com/users/${post.userId}`
+      ? `https://jsonplaceholder.typicode.com/user/${post.userId}`
       : null,
     fetcher
   );
   return {
     post,
-    uset,
+    user,
     error: postError === userError,
     isLoading: !user && !userError,
   };

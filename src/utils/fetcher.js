@@ -1,4 +1,4 @@
- export const fetcher = async (url) => {
+export const fetcher = async (url) => {
   const response = await fetch(url);
 
   if (!response.ok) {
