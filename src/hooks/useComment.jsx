@@ -1,4 +1,4 @@
-const { useRouter } = require("next/router");
+import { useRouter } from "next/router";
 import { fetcher } from "@/utils/fetcher";
 import useSWR from "swr";
 
