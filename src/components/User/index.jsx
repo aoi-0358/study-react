@@ -1,4 +1,4 @@
-import { useUsers } from "@/hooks/useUsers";
+import { useUsers } from "@/hooks/useFetchArray";
 
 export const UserComponent = () => {
   const { data, error, isLoading } = useUsers();
