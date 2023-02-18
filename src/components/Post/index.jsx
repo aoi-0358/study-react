@@ -1,13 +1,13 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
 import { usePost } from "src/hooks/usePost";
-
+import { CommentsByPostsId } from "src/components/Comments/CommentsByPostsId";
+import { UserByUserId } from "../User/UserByUserId";
 
 const inter = Inter({ subsets: ["latin"] });
 
-//--------------------home
 export const Post = () => {
-  const { post, user, error, isLoading } = usePost();
+  const { data, user, error, isLoading } = usePost();
 
   if (isLoading) {
     return <div>ローディング中</div>;
@@ -20,12 +20,13 @@ export const Post = () => {
   return (
     <>
       <div>
-      <Head>
-        <title>{post?.title}</title>
-      </Head>
-        <h1>{post?.title}</h1>
-        <p>{post?.body}</p>
-        {user?.name ? <div>Created by {user.name}</div> : null}
+        <Head>
+          <title>{data?.title}</title>
+        </Head>
+        <h1>{data?.title}</h1>
+        <p>{data?.body}</p>
+        <UserByUserId id={data.userId}/>
+        <CommentsByPostsId id={data.id} />
       </div>
     </>
   );

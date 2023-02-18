@@ -1,12 +1,20 @@
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
-import { usePosts } from "src/hooks/useFetchArray";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import useSWR from "swr";
+import { fetcher } from "src/utils/fetcher";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const Posts = () => {
-  const { data, error, isLoading, isEmpty } = usePosts();
+  const router = useRouter();
+  const { data, error, isLoading, isEmpty,  } = useSWR(
+    router.query.id
+      ? `https://jsonplaceholder.typicode.com/posts/${router.query.id}`
+      : null,
+    fetcher
+  );
 
   if (isLoading) {
     return <div>ローディング中</div>;

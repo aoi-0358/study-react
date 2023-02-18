@@ -1,3 +1,4 @@
+import PostsId from "@/pages/posts/[id]";
 import { fetcher } from "@/utils/fetcher";
 import useSWR from "swr";
 
@@ -24,4 +25,8 @@ export const usePosts = () => {
 
 export const useUsers = () => {
   return useFetchArray(`${API_URL}/users`, fetcher);
+};
+
+export const useCommentsByPostsId = (id) => {
+  return useFetchArray(id ? `${API_URL}/comments?PostsId=${id}` : null);
 };
