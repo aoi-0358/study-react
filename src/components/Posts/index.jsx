@@ -1,5 +1,4 @@
 import { Inter } from "@next/font/google";
-import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import { usePosts } from "@/hooks/useFetchArray";
 usePosts
@@ -23,7 +22,7 @@ export const Posts = () => {
 
   return (
     <>
-      <ol className={styles.wrapper}>
+      <ol>
         {data.map((post) => {
           return (
             <li key={post.id}>
