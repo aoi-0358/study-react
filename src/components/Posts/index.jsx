@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const Posts = () => {
   const router = useRouter();
-  const { data, error, isLoading, isEmpty,  } = useSWR(
+  const { data, error, isLoading, isEmpty } = useSWR(
     router.query.id
       ? `https://jsonplaceholder.typicode.com/posts/${router.query.id}`
       : null,
