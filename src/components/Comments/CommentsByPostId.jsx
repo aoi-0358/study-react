@@ -1,7 +1,7 @@
 import { useCommentsByPostId } from "@/hooks/useFetchArray";
 import Link from "next/link";
 
-export const CommentsByPostsId = (props) => {
+export const CommentsByPostId = (props) => {
   const { data, error, isLoading, isEmpty } = useCommentsByPostId(props.Id);
   if (isLoading) {
     return <p>Loading...</p>;
@@ -15,17 +15,16 @@ export const CommentsByPostsId = (props) => {
     return <p>No comments found.</p>;
   }
   return (
-    <ol>
+    <ul className="space-y-3">
       {data.map((comment) => {
         return (
-          <li key={comment.id}>
+          <li key={comment.id} className="border-b pb-3">
             <Link href={`/comments/${comment.id}`}>
-              <div>{comment.body}</div>
+              <div className="hover:text-blue-500">{comment.body}</div>
             </Link>
           </li>
         );
       })}
-    </ol>
+    </ul>
   );
 };
-

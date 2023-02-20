@@ -1,7 +1,6 @@
 import { useComments } from "@/hooks/useFetchArray";
 import Link from "next/link";
 
-
 export const CommentComponent = () => {
   const { data, error, isLoading, isEmpty } = useComments();
 
@@ -17,16 +16,18 @@ export const CommentComponent = () => {
     return <p>No comments found.</p>;
   }
   return (
-    <ol>
+    <ul className="space-y-3">
       {data.map((comment) => {
         return (
-          <li key={comment.id}>
+          <li key={comment.id} className="border-b pb-3">
             <Link href={`/comments/${comment.id}`}>
-              <div>{comment.body}</div>
+              <div className="block hover:text-blue-500">
+                {comment.body}
+              </div>
             </Link>
           </li>
         );
       })}
-    </ol>
+    </ul>
   );
 };

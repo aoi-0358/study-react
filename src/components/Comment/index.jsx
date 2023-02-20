@@ -13,13 +13,14 @@ export const CommentComponent = () => {
   }
   return (
     <div>
-      <h1>{data.body}</h1>
-      <ul>
-        <li>{data.name}</li>
-        <li>{data.email}</li>
-      </ul>
-      <h2>元の記事</h2>
-      <PostByCommentId id={data.postId} />
+      <div className="text-lg">
+        {data.name} ({data.email})
+      </div>
+      <h1 className="text-3xl font-bold">{data.body}</h1>;
+      <h2 className="text-lg font-bold mt-10">コメント一覧</h2>
+      <div className="mt-2">
+        <PostByCommentId id={data.postId} />
+      </div>
     </div>
   );
 };

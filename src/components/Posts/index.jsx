@@ -1,7 +1,7 @@
 import { Inter } from "@next/font/google";
 import Link from "next/link";
 import { usePosts } from "@/hooks/useFetchArray";
-usePosts
+usePosts;
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,17 +22,22 @@ export const Posts = () => {
 
   return (
     <>
-      <ol>
+      <ul className="space-y-4">
         {data.map((post) => {
           return (
             <li key={post.id}>
               <Link href={`/posts/${post.id}`}>
-                <div>{post.title}</div>
+                <div className="block group">
+                  <h1 className="text-2xl font-bold group-hover:text-blue-500">
+                    {post.title}
+                  </h1>
+                  <p className="text-lg text-gray-500 group-hover:text-blue-400">{post.body}</p>
+                </div>
               </Link>
             </li>
           );
         })}
-      </ol>
+      </ul>
     </>
   );
 };
