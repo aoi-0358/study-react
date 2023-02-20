@@ -1,9 +1,8 @@
-import { useUsers } from "@/hooks/useFetchArray";
-import { PostsByUserId } from "../Posts/PostsByUserId";
+import { useUser } from "src/hooks/useUser";
+import { PostsByUserId } from "src/components/Posts/PostsByUserId";
 
 export const UserComponent = () => {
-  const { data, error, isLoading } = useUsers();
-
+  const { data, error, isLoading } = useUser();
   if (isLoading) {
     return <div>Loading...</div>;
   }
