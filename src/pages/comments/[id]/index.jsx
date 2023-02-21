@@ -6,14 +6,15 @@ import { SWRConfig } from "swr";
 const inter = Inter({ subsets: ["latin"] });
 
 export const getStaticPaths = async () => {
-  const comments = await fetch("https://jsonplaceholder.typicode.com/comments");
+  const comments = await fetch(
+    "https://jsonplaceholder.typicode.com/comments?_limit=10s"
+  );
   const commentData = await comments.json();
   const paths = commentData.map((comment) => {
-    params: {
-      id: comment.id.toStrings();
-    }
+    params: {id: comment.id.toString();
+      }
   });
-  return { paths, fallback: false };
+  return { paths, fallback: "blocking" };
 };
 
 export const getStaticProps = async (ctx) => {
@@ -21,8 +22,14 @@ export const getStaticProps = async (ctx) => {
   const COMMENT_API_URL = `https://jsonplaceholder.typicode.com/comments${id}`;
 
   const comment = await fetch(COMMENT_API_URL);
+
+  if (!comment.ok) {
+    return {
+      noFound: ture,
+    };
+  }
+
   const commentData = await comment.json();
-  
 
   return {
     props: {
