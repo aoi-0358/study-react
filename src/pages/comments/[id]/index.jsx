@@ -7,13 +7,12 @@ import { API_URL } from "@/utils/const";
 const inter = Inter({ subsets: ["latin"] });
 
 export const getStaticPaths = async () => {
-  const comments = await fetch(
-    "${API_URL}/comments?_limit=10s"
-  );
+  const comments = await fetch("${API_URL}/comments?_limit=10s");
   const commentData = await comments.json();
   const paths = commentData.map((comment) => {
-    params: {id: comment.id.toString();
-      }
+    params: {
+      id: comment.id.toString();
+    }
   });
   return { paths, fallback: "blocking" };
 };
@@ -27,6 +26,7 @@ export const getStaticProps = async (ctx) => {
   if (!comment.ok) {
     return {
       noFound: ture,
+      revalidate: 10,
     };
   }
 
@@ -38,6 +38,7 @@ export const getStaticProps = async (ctx) => {
         [COMMENT_API_URL]: commentData,
       },
     },
+    revalidate: 10,
   };
 };
 
