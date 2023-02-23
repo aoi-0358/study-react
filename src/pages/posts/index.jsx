@@ -1,9 +1,5 @@
 import Head from "next/head";
-import { Inter } from "@next/font/google";
-import { Header } from "src/components/Header";
-import { Posts as PostsComponent} from "src/components/Posts";
-
-const inter = Inter({ subsets: ["latin"] });
+import { PostList } from "@/components/Post/PostList";
 
 const Posts = () => {
   return (
@@ -11,8 +7,7 @@ const Posts = () => {
       <Head>
         <title>Posts Page</title>
       </Head>
-      <Header />
-      <PostsComponent />
+      <PostList />
     </div>
   );
 };

@@ -1,9 +1,11 @@
-import { useComments } from "@/hooks/useFetchArray";
+import { useFetchArray } from "@/hooks/useFetchArray";
+import { API_URL } from "@/utils/const";
 import Link from "next/link";
 
-export const CommentComponent = () => {
-  const { data, error, isLoading, isEmpty } = useComments();
-
+export const CommentListByPostId = (props) => {
+  const { data, error, isLoading, isEmpty } = useFetchArray(
+    props.id ? `${API_URL}/posts/${props.id}/comment` : null
+  );
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -20,8 +22,8 @@ export const CommentComponent = () => {
       {data.map((comment) => {
         return (
           <li key={comment.id} className="border-b pb-3">
-            <Link href={`/comments/${comment.id}`} prefetch={false}>
-              <div className="block hover:text-blue-500">{comment.body}</div>
+            <Link href={`/comments/${comment.id}`}>
+              <div className="hover:text-blue-500">{comment.body}</div>
             </Link>
           </li>
         );

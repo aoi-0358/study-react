@@ -1,11 +1,7 @@
 import Head from "next/head";
-import { Inter } from "@next/font/google";
-import { Header } from "src/components/Header";
-import { UsersComponent } from "@/components/Users/Index";
+import { UserList } from "@/components/User/UserList";
 import { SWRConfig } from "swr";
 import { API_URL } from "@/utils/const";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const getServerSideProps = async () => {
   const USERS_API_URL = `${API_URL}/users`;
@@ -29,8 +25,7 @@ const Users = (props) => {
         <title>Users Page</title>
       </Head>
       <SWRConfig value={{ fallback }}>
-        <Header />
-        <UsersComponent />
+        <UserList />
       </SWRConfig>
     </div>
   );

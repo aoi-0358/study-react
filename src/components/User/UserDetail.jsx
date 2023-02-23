@@ -1,8 +1,13 @@
-import { useUser } from "src/hooks/useUser";
-import { PostsByUserId } from "src/components/Posts/PostsByUserId";
+import { PostListByUserId } from "src/components/Post/PostListByUserId";
+import { useFetch } from "@/hooks/useFetch";
+import { useRouter } from "next/router";
+import { API_URL } from "@/utils/const";
 
-export const UserComponent = () => {
-  const { data, error, isLoading } = useUser();
+export const UserDetail = () => {
+  const router = useRouter();
+  const { data, error, isLoading } = useFetch(
+    router.query.id ? `${API_URL}/users/${router.query.id}` : null
+  );
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -24,7 +29,7 @@ export const UserComponent = () => {
       </ul>
       <h2 className="text-xl font-bold mt-10">投稿</h2>
       <div className="mt-2">
-        <PostsByUserId id={data.id} />
+        <PostListByUserId id={data.id} />
       </div>
     </div>
   );

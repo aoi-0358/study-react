@@ -1,11 +1,10 @@
-import { Inter } from "@next/font/google";
 import Link from "next/link";
-import { usePostsByUserId } from "src/hooks/useFetchArray";
+import { useFetchArray } from "src/hooks/useFetchArray";
+import { API_URL } from "src/utils/const";
 
-const inter = Inter({ subsets: ["latin"] });
+export const PostLIst = () => {
+  const { data, error, isLoading, isEmpty } = useFetchArray(`${API_URL}/posts`);
 
-export const PostsByUserId = (props) => {
-  const { data, error, isLoading, isEmpty } = usePostsByUserId(props.id);
   if (isLoading) {
     return <div>ローディング中</div>;
   }

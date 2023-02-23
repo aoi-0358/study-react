@@ -1,10 +1,7 @@
-import { Inter } from "@next/font/google";
-import { Header } from "src/components/Header";
-import { CommentComponent } from "@/components/Comments";
+import { CommentDetail } from "src/components/comments/comment";
 import { SWRConfig } from "swr";
 import { API_URL } from "@/utils/const";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const getStaticPaths = async () => {
   const comments = await fetch("${API_URL}/comments?_limit=10s");
@@ -46,9 +43,8 @@ const CommentsId = (props) => {
   const { fallback } = props;
   return (
     <div>
-      <Header />
       <SWRConfig value={{ fallback }}>
-        <CommentComponent />
+        <CommentDetail />
       </SWRConfig>
     </div>
   );

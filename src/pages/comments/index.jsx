@@ -1,11 +1,7 @@
 import Head from "next/head";
-import { Inter } from "@next/font/google";
-import { Header } from "src/components/Header";
-import { CommentComponent } from "@/components/Comments";
+import { CommentList } from "@/components/Comment/CommentList";
 import { SWRConfig } from "swr";
 import { API_URL } from "@/utils/const";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const getStaticProps = async () => {
   const COMMENTS_API_URL = `${API_URL}/comments`;
@@ -32,8 +28,7 @@ const Comments = (props) => {
         <title>Comments Page</title>
       </Head>
       <SWRConfig value={{ fallback }}>
-        <Header />
-        <CommentComponent />
+        <CommentList />
       </SWRConfig>
     </div>
   );

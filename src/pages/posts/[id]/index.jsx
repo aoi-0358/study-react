@@ -1,14 +1,12 @@
 import { Inter } from "@next/font/google";
-import { Header } from "src/components/Header";
-import { Post } from "src/components/Post";
+import { PostDetail } from "@/components/Post/PostDetail";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const PostsId = () => {
   return (
     <div>
-      <Header />
-      <Post />
+      <PostDetail />
     </div>
   );
 };
